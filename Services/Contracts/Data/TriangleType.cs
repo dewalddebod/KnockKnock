@@ -5,19 +5,19 @@ namespace Readify.Services.Contracts.Data
 {
     [GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [DataContractAttribute(Name = "TriangleType", Namespace = "http://KnockKnock.readify.net")]
-    public enum TriangleType : int
+    public enum TriangleType
     {
 
-        [EnumMemberAttribute()]
+        [EnumMemberAttribute]
         Error = 0,
 
-        [EnumMemberAttribute()]
+        [EnumMemberAttribute]
         Equilateral = 1,
 
-        [EnumMemberAttribute()]
+        [EnumMemberAttribute]
         Isosceles = 2,
 
-        [EnumMemberAttribute()]
+        [EnumMemberAttribute]
         Scalene = 3,
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Readify.Services.WCF.Tests.ReadifyService;
 
 namespace Readify.Services.WCF.Tests
@@ -8,7 +7,7 @@ namespace Readify.Services.WCF.Tests
     public class TestFixtures
     {
         [TestMethod]
-        public void GetWhosThereToken()
+        public void GetToken()
         {
             var client = new RedPillService.RedPillClient("BasicHttpBinding_IRedPill1");
             var response = client.WhatIsYourToken();
@@ -20,7 +19,7 @@ namespace Readify.Services.WCF.Tests
         [TestMethod]
         public void FibonacciNumber()
         {
-            var readifyClient = new ReadifyService.RedPillClient("BasicHttpBinding_IRedPill");
+            var readifyClient = new RedPillClient("BasicHttpBinding_IRedPill");
             var redPillClient = new RedPillService.RedPillClient("BasicHttpBinding_IRedPill1");
             long[] numbers = { -4, -5, 0, 1, -6, 3, 4, 5, 6, 7, 46, 47, 92, 2, -3, -1, -92, -47, -46, -7, -93, 93, -9223372036854775808, -2147483648, 2147483647, 9223372036854775807 };
             var exceptionOccured = false;
@@ -47,7 +46,7 @@ namespace Readify.Services.WCF.Tests
         [TestMethod]
         public void ReverseWords()
         {
-            var readifyClient = new ReadifyService.RedPillClient("BasicHttpBinding_IRedPill");
+            var readifyClient = new RedPillClient("BasicHttpBinding_IRedPill");
             var redPillClient = new RedPillService.RedPillClient("BasicHttpBinding_IRedPill1");
 
             string[] words = { "", "cat", "trailing space ", "Bang!", "", "cat and dog", "two  spaces", " leading space", "Capital", "This is a snark: ⸮", "P!u@n#c$t%u^a&t*i(o)n", "detartrated kayak detartrated", "¿Qué?", "  S  P  A  C  E  Y  ", "!B!A!N!G!S!" };
@@ -63,7 +62,7 @@ namespace Readify.Services.WCF.Tests
         [TestMethod]
         public void WhatShapeIsThis()
         {
-            var readifyClient = new ReadifyService.RedPillClient("BasicHttpBinding_IRedPill");
+            var readifyClient = new RedPillClient("BasicHttpBinding_IRedPill");
             var redPillClient = new RedPillService.RedPillClient("BasicHttpBinding_IRedPill1");
 
             int[] a = { 0, 1, 1, 1, 2, 1, 1, 1, 2, 2147483647, 2, 2, 3, 2, 3, 4, 4, 1, -2147483648, -1, -1, 1, 1, 0, 2147483647 };
@@ -73,9 +72,6 @@ namespace Readify.Services.WCF.Tests
             {
                 for (int i = 0; i < a.Length; i++)
                 {
-                    var currentA = a[i];
-                    var currentB = b[i];
-                    var currentC = c[i];
                     var readifyResult = readifyClient.WhatShapeIsThis(a[i], b[i], c[i]);
                     var redPillResult = redPillClient.WhatShapeIsThis(a[i], b[i], c[i]);
 

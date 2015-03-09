@@ -9,7 +9,25 @@
 //------------------------------------------------------------------------------
 
 namespace Readify.Services.WCF.Tests.RedPillService {
+    using System.Runtime.Serialization;
     
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TriangleType", Namespace="http://KnockKnock.readify.net")]
+    public enum TriangleType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Error = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Equilateral = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Isosceles = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Scalene = 3,
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://KnockKnock.readify.net", ConfigurationName="RedPillService.IRedPill")]
@@ -30,10 +48,10 @@ namespace Readify.Services.WCF.Tests.RedPillService {
         System.Threading.Tasks.Task<long> FibonacciNumberAsync(long n);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://KnockKnock.readify.net/IRedPill/WhatShapeIsThis", ReplyAction="http://KnockKnock.readify.net/IRedPill/WhatShapeIsThisResponse")]
-        Readify.Services.Contracts.Data.TriangleType WhatShapeIsThis(int a, int b, int c);
+        Readify.Services.WCF.Tests.RedPillService.TriangleType WhatShapeIsThis(int a, int b, int c);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://KnockKnock.readify.net/IRedPill/WhatShapeIsThis", ReplyAction="http://KnockKnock.readify.net/IRedPill/WhatShapeIsThisResponse")]
-        System.Threading.Tasks.Task<Readify.Services.Contracts.Data.TriangleType> WhatShapeIsThisAsync(int a, int b, int c);
+        System.Threading.Tasks.Task<Readify.Services.WCF.Tests.RedPillService.TriangleType> WhatShapeIsThisAsync(int a, int b, int c);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://KnockKnock.readify.net/IRedPill/ReverseWords", ReplyAction="http://KnockKnock.readify.net/IRedPill/ReverseWordsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentNullException), Action="http://KnockKnock.readify.net/IRedPill/ReverseWordsArgumentNullExceptionFault", Name="ArgumentNullException", Namespace="http://schemas.datacontract.org/2004/07/System")]
@@ -86,11 +104,11 @@ namespace Readify.Services.WCF.Tests.RedPillService {
             return base.Channel.FibonacciNumberAsync(n);
         }
         
-        public Readify.Services.Contracts.Data.TriangleType WhatShapeIsThis(int a, int b, int c) {
+        public Readify.Services.WCF.Tests.RedPillService.TriangleType WhatShapeIsThis(int a, int b, int c) {
             return base.Channel.WhatShapeIsThis(a, b, c);
         }
         
-        public System.Threading.Tasks.Task<Readify.Services.Contracts.Data.TriangleType> WhatShapeIsThisAsync(int a, int b, int c) {
+        public System.Threading.Tasks.Task<Readify.Services.WCF.Tests.RedPillService.TriangleType> WhatShapeIsThisAsync(int a, int b, int c) {
             return base.Channel.WhatShapeIsThisAsync(a, b, c);
         }
         

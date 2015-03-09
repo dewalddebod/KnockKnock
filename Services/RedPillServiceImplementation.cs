@@ -14,7 +14,7 @@ namespace Readify.Services
     {
         #region Properties
 
-        static Dictionary<long, long> g_Results = new Dictionary<long, long>();
+        static readonly Dictionary<long, long> GResults = new Dictionary<long, long>();
 
         #endregion
 
@@ -93,17 +93,16 @@ namespace Readify.Services
 
             if (n < 2)
                 return n;
-            else
-            {
-                if (g_Results.ContainsKey(n))
-                    return g_Results[n];
 
-                long result = Fibonacci(n - 1) + Fibonacci(n - 2);
-                g_Results.Add(n, result);
-                if (convertedToPositive)
-                    result = result * -1;
-                return result;
-            }
+            if (GResults.ContainsKey(n))
+                return GResults[n];
+
+            var result = Fibonacci(n - 1) + Fibonacci(n - 2);
+            GResults.Add(n, result);
+
+            if (convertedToPositive)
+                result = result * -1;
+            return result;
         }
 
         private static string ReverseWordsInString(string value)
@@ -119,6 +118,7 @@ namespace Readify.Services
             {
                 result.Append(string.Format("{0} ", ReverseWord(word)));
             }
+
             if (result.Length > 0)
                 result.Remove(result.Length - 1, 1);
 
@@ -158,9 +158,9 @@ namespace Readify.Services
 
         private void WriteToLog(string method, string values, string exp)
         {
-            using (var _testData = new StreamWriter(string.Format("{0}/log.txt", AppDomain.CurrentDomain.BaseDirectory), true))
+            using (var testData = new StreamWriter(string.Format("{0}/log.txt", AppDomain.CurrentDomain.BaseDirectory), true))
             {
-                _testData.WriteLine("Method: {0}, Values:{1}, Exception: {2}", method, values, exp);
+                testData.WriteLine("Method: {0}, Values:{1}, Exception: {2}", method, values, exp);
             }
         }
 

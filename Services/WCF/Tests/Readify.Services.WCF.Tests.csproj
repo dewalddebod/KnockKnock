@@ -71,6 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Service References\ReadifyService\Readify.Services.WCF.Tests.ReadifyService.TriangleType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RedPillService\Readify.Services.WCF.Tests.RedPillService.TriangleType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\RedPillService\RedPill.wsdl" />
     <None Include="Service References\RedPillService\RedPill.xsd">
       <SubType>Designer</SubType>
@@ -127,16 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\RedPillService\RedPill.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Contracts\Readify.Services.Contracts.csproj">
-      <Project>{15b3e0d2-6217-493a-a690-158c497f5318}</Project>
-      <Name>Readify.Services.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Readify.Services.csproj">
-      <Project>{f120dfb6-1d2a-410a-b4a1-18d1e3169afd}</Project>
-      <Name>Readify.Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
